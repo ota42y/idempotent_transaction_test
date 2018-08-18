@@ -1,0 +1,2 @@
+class IdempotentExecutor < ApplicationRecord
+end

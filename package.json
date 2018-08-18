@@ -1,0 +1,5 @@
+{
+  "name": "idempotent_test",
+  "private": true,
+  "dependencies": {}
+}
