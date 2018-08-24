@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2018_08_18_015657) do
     t.string "signature", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_idempotent_executors_on_created_at"
+    t.index ["user_id", "transaction_type", "signature"], name: "idempotent_index", unique: true
     t.index ["user_id"], name: "index_idempotent_executors_on_user_id"
   end
 
@@ -35,4 +37,6 @@ ActiveRecord::Schema.define(version: 2018_08_18_015657) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "idempotent_executors", "users"
+  add_foreign_key "posts", "users"
 end
